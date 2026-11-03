@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#123b2b">
+<link rel="manifest" href="./manifest.webmanifest">
+<title>Photo Field Tagging</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand-mark">⌖</div>
+  <div class="brand-copy"><strong>Photo Field Tagging</strong><small>Dokumentasi lapangan</small></div>
+  <span id="net" class="pill">Memeriksa…</span>
+</header>
+<main>
+  <section class="intro">
+    <p class="eyebrow">FIELD DOCUMENTATION</p>
+    <h1>Ambil foto<br><span>dengan data lokasi.</span></h1>
+    <p class="sub">Foto dan koordinat tersimpan sebagai dokumentasi lapangan.</p>
+  </section>
+
+  <section class="panel form-panel">
+    <label for="farmer">Nama / kode petani</label>
+    <input id="farmer" autocomplete="off" placeholder="Contoh: SJW - Y3 - 01 - Nama Petani">
+    <div class="gps-card">
+      <div class="gps-icon">◎</div>
+      <div class="gps-copy"><strong id="gpsState">GPS belum dibaca</strong><span id="gpsText">Menunggu koordinat lokasi…</span></div>
+      <button id="refreshGps" class="refresh" aria-label="Perbarui GPS">↻</button>
+    </div>
+  </section>
+
+  <section class="camera-panel">
+    <div class="camera-heading"><div><span class="eyebrow">KAMERA</span><h2>Dokumentasi foto</h2></div><span class="live-dot">● SIAP</span></div>
+    <div class="camera-wrap">
+      <video id="video" autoplay playsinline muted></video>
+      <canvas id="canvas" hidden></canvas>
+      <div id="cameraPlaceholder"><span class="camera-symbol">▣</span><strong>Kamera belum aktif</strong><small>Aktifkan kamera untuk mulai dokumentasi</small></div>
+    </div>
+    <button id="start" class="secondary block">Aktifkan kamera</button>
+    <button id="capture" class="capture block" disabled><span>●</span> AMBIL FOTO & TAGGING</button>
+    <p id="status" class="status">Pastikan nama petani dan GPS sudah benar sebelum mengambil foto.</p>
+  </section>
+
+  <div hidden>
+    <img id="result" alt="">
+    <a id="download"></a>
+    <div id="records"></div>
+    <button id="export"></button>
+    <input id="note">
+  </div>
+</main>
+<footer><span>PHOTO FIELD TAGGING</span><span>Offline ready</span></footer>
+<script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "appId": "id.fieldtagging.photo",
+  "appName": "Photo Field Tagging",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
