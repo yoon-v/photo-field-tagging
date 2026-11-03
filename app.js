@@ -147,10 +147,18 @@ async function capture() {
   if (!width || !height) { setStatus("Kamera belum siap."); return; }
 
   // The browser prototype captures the current video frame. This is not equivalent to a full-resolution native camera still.
-  canvas.width = width;
-  canvas.height = height;
+  // Hasil akhir landscape tanpa memutar seluruh halaman aplikasi.
+  const portraitStream = height > width;
+  canvas.width = portraitStream ? height : width;
+  canvas.height = portraitStream ? width : height;
   const ctx = canvas.getContext("2d");
-  ctx.drawImage(video, 0, 0, width, height);
+  if (portraitStream) {
+    ctx.translate(canvas.width / 2, canvas.height / 2);
+    ctx.rotate(Math.PI / 2);
+    ctx.drawImage(video, -width / 2, -height / 2, width, height);
+  } else {
+    ctx.drawImage(video, 0, 0, width, height);
+  }
 
   const takenAt = new Date();
   const gpsFix = await getFreshFixForCapture();
