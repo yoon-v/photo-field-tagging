@@ -120,8 +120,6 @@ async function startCamera() {
       if (video.readyState >= 1) return resolve();
       video.addEventListener("loadedmetadata", resolve, { once: true });
     });
-    // Rotate only a portrait camera feed inside the landscape preview.
-    video.classList.toggle("rotate-landscape", video.videoHeight > video.videoWidth);
     $("cameraPlaceholder").hidden = true;
     $("capture").disabled = false;
     startGpsTracking();
