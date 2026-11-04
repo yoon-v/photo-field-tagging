@@ -1,5 +1,5 @@
 
-const CACHE = "photo-field-tagging-v6";
+const CACHE = "photo-field-tagging-v7";
 
 const ASSETS = [
   "./",
